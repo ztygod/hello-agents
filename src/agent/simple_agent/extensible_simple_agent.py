@@ -1,8 +1,9 @@
-from mailbox import Message
 from typing import Optional
-from agent.simple_agent.simple_agent import SimpleAgent
-from core.config import Config
-from core.llm import HelloAgentsLLM
+
+from .simple_agent import SimpleAgent
+from ...core.config import Config
+from ...core.llm import HelloAgentsLLM
+from ...core.message import Message
 
 
 class ExtensibleSimpleAgent(SimpleAgent):
@@ -38,7 +39,7 @@ class ExtensibleSimpleAgent(SimpleAgent):
         messages = []
 
         # 添加系统消息（可能包含工具信息）
-        enhanced_system_prompt = self._get_enhanced_system_prompt()
+        enhanced_system_prompt = self._get_enhance_system_prompt()
         messages.append({"role": "system", "content": enhanced_system_prompt})
 
         # 添加历史消息
