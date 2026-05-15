@@ -1,5 +1,7 @@
 from typing import Optional
 
+from hello_agents import ToolRegistry
+
 from .simple_agent import SimpleAgent
 from ...core.config import Config
 from ...core.llm import HelloAgentsLLM
@@ -18,7 +20,7 @@ class ExtensibleSimpleAgent(SimpleAgent):
         llm: HelloAgentsLLM,
         system_prompt: Optional[str] = None,
         config: Optional[Config] = None,
-        tool_registry: Optional["ToolRegistry"] = None,
+        tool_registry: Optional[ToolRegistry] = None,
         enable_tool_calling: bool = True,
     ):
         super().__init__(name, llm, system_prompt, config)
